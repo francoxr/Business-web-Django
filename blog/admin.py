@@ -19,7 +19,6 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ('author__username','categories__name')
     
     def post_categories(self, obj):
-        print(obj.categories.all())
         return ", ".join([c.name for c in obj.categories.all()])
     
     post_categories.short_description = "Categorias"

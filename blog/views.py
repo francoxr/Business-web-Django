@@ -3,6 +3,7 @@ from .models import Post, Category
 
 # Create your views here.
 def blog(request):
+    """Return all posts"""
     posts = Post.objects.all()
     return render(request, "blog/blog.html", {'posts': posts})
 
@@ -13,5 +14,6 @@ def blog(request):
 #     return render(request, "blog/category.html", {'category': category, 'posts': posts})
 
 def category(request, category_id):
+    """Return all posts filtered by the chosen category """
     category = get_object_or_404(Category, id=category_id)
     return render(request, "blog/category.html", {'category': category})
